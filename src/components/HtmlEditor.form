@@ -7,205 +7,6 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="c91f7" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
-        <constraints border-constraint="North"/>
-        <properties>
-          <background color="-1"/>
-        </properties>
-        <border type="none"/>
-        <children>
-          <component id="66315" class="javax.swing.JButton" binding="boldButton" default-binding="true">
-            <constraints/>
-            <properties>
-              <actionCommand value="Bold"/>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="components/images/html-editor-bold.png"/>
-              <iconTextGap value="0"/>
-              <margin top="0" left="0" bottom="0" right="0"/>
-              <opaque value="false"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-            <clientProperties>
-              <hideActionText class="java.lang.Boolean" value="false"/>
-            </clientProperties>
-          </component>
-          <component id="8e107" class="javax.swing.JButton" binding="underlineButton" default-binding="true">
-            <constraints/>
-            <properties>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="components/images/html-editor-underline.png"/>
-              <iconTextGap value="0"/>
-              <opaque value="false"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="e95cf" class="javax.swing.JButton" binding="italicButton" default-binding="true">
-            <constraints/>
-            <properties>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="components/images/html-editor-italic.png"/>
-              <iconTextGap value="0"/>
-              <opaque value="false"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="e5e4f" class="javax.swing.JComboBox" binding="fontFamilyCombo">
-            <constraints/>
-            <properties>
-              <minimumSize width="150" height="27"/>
-              <preferredSize width="150" height="27"/>
-              <requestFocusEnabled value="false"/>
-            </properties>
-          </component>
-          <component id="400aa" class="javax.swing.JSpinner" binding="fontSizeSpinner">
-            <constraints/>
-            <properties>
-              <minimumSize width="50" height="27"/>
-              <preferredSize width="50" height="27"/>
-              <requestFocusEnabled value="false"/>
-            </properties>
-          </component>
-          <component id="857e" class="javax.swing.JSeparator">
-            <constraints/>
-            <properties>
-              <alignmentX value="1.0"/>
-              <background color="-16777216"/>
-              <enabled value="false"/>
-              <minimumSize width="5" height="5"/>
-              <opaque value="true"/>
-              <orientation value="1"/>
-              <preferredSize width="5" height="5"/>
-              <requestFocusEnabled value="false"/>
-              <verifyInputWhenFocusTarget value="false"/>
-            </properties>
-          </component>
-          <component id="32382" class="javax.swing.JButton" binding="alignLeftButton">
-            <constraints/>
-            <properties>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="components/images/html-editor-align-left.png"/>
-              <iconTextGap value="0"/>
-              <opaque value="false"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="9cb2d" class="javax.swing.JButton" binding="alignCenter">
-            <constraints/>
-            <properties>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="components/images/html-editor-align-center.png"/>
-              <iconTextGap value="0"/>
-              <opaque value="false"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="37530" class="javax.swing.JButton" binding="alignRight">
-            <constraints/>
-            <properties>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="components/images/html-editor-align-right.png"/>
-              <iconTextGap value="0"/>
-              <opaque value="false"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="ba284" class="javax.swing.JButton" binding="alignJustify">
-            <constraints/>
-            <properties>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <focusPainted value="false"/>
-              <focusable value="false"/>
-              <icon value="components/images/html-editor-align-justify.png"/>
-              <iconTextGap value="0"/>
-              <opaque value="false"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="6f82c" class="javax.swing.JSeparator">
-            <constraints/>
-            <properties>
-              <alignmentX value="1.0"/>
-              <background color="-16777216"/>
-              <enabled value="false"/>
-              <minimumSize width="5" height="5"/>
-              <opaque value="true"/>
-              <orientation value="1"/>
-              <preferredSize width="5" height="5"/>
-              <requestFocusEnabled value="false"/>
-              <verifyInputWhenFocusTarget value="false"/>
-            </properties>
-          </component>
-          <component id="ac570" class="javax.swing.JLabel" binding="foregroundLabel">
-            <constraints/>
-            <properties>
-              <foreground color="-16777216"/>
-              <text value="F"/>
-            </properties>
-          </component>
-          <component id="fe50c" class="javax.swing.JButton" binding="foregroundColorButton">
-            <constraints/>
-            <properties>
-              <background color="-1312513"/>
-              <enabled value="true"/>
-              <foreground color="-1312513"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="9b6fa" class="javax.swing.JLabel" binding="backgroundLabel">
-            <constraints/>
-            <properties>
-              <foreground color="-16777216"/>
-              <text value="B"/>
-            </properties>
-          </component>
-          <component id="b3135" class="javax.swing.JButton" binding="backgroundColorButton">
-            <constraints/>
-            <properties>
-              <background color="-1312513"/>
-              <enabled value="true"/>
-              <foreground color="-1312513"/>
-              <preferredSize width="28" height="27"/>
-              <requestFocusEnabled value="false"/>
-              <text value=""/>
-            </properties>
-          </component>
-        </children>
-      </grid>
       <grid id="e8930" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties/>
@@ -218,6 +19,225 @@
             </properties>
             <border type="none"/>
             <children>
+              <scrollpane id="5b002">
+                <constraints>
+                  <tabbedpane title="View"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="5774b" binding="htmlEditorContainer" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="e3c44" class="javax.swing.JEditorPane" binding="htmlEditorPane">
+                        <constraints border-constraint="Center"/>
+                        <properties/>
+                      </component>
+                      <grid id="16c9e" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+                        <constraints border-constraint="North"/>
+                        <properties>
+                          <background color="-1"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="d6f3b" class="javax.swing.JButton" binding="boldButton" default-binding="true">
+                            <constraints/>
+                            <properties>
+                              <actionCommand value="Bold"/>
+                              <borderPainted value="true"/>
+                              <contentAreaFilled value="false"/>
+                              <focusPainted value="false"/>
+                              <focusable value="false"/>
+                              <icon value="components/images/html-editor-bold.png"/>
+                              <iconTextGap value="0"/>
+                              <margin top="0" left="0" bottom="0" right="0"/>
+                              <opaque value="false"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                            <clientProperties>
+                              <hideActionText class="java.lang.Boolean" value="false"/>
+                            </clientProperties>
+                          </component>
+                          <component id="8f4c6" class="javax.swing.JButton" binding="underlineButton" default-binding="true">
+                            <constraints/>
+                            <properties>
+                              <borderPainted value="true"/>
+                              <contentAreaFilled value="false"/>
+                              <focusPainted value="false"/>
+                              <focusable value="false"/>
+                              <icon value="components/images/html-editor-underline.png"/>
+                              <iconTextGap value="0"/>
+                              <opaque value="false"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="46f24" class="javax.swing.JButton" binding="italicButton" default-binding="true">
+                            <constraints/>
+                            <properties>
+                              <borderPainted value="true"/>
+                              <contentAreaFilled value="false"/>
+                              <focusPainted value="false"/>
+                              <focusable value="false"/>
+                              <icon value="components/images/html-editor-italic.png"/>
+                              <iconTextGap value="0"/>
+                              <opaque value="false"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="dc825" class="javax.swing.JComboBox" binding="fontFamilyCombo">
+                            <constraints/>
+                            <properties>
+                              <minimumSize width="150" height="27"/>
+                              <preferredSize width="150" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                            </properties>
+                          </component>
+                          <component id="c46f0" class="javax.swing.JSpinner" binding="fontSizeSpinner">
+                            <constraints/>
+                            <properties>
+                              <minimumSize width="50" height="27"/>
+                              <preferredSize width="50" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                            </properties>
+                          </component>
+                          <component id="185be" class="javax.swing.JSeparator">
+                            <constraints/>
+                            <properties>
+                              <alignmentX value="1.0"/>
+                              <background color="-16777216"/>
+                              <enabled value="false"/>
+                              <minimumSize width="5" height="5"/>
+                              <opaque value="true"/>
+                              <orientation value="1"/>
+                              <preferredSize width="5" height="5"/>
+                              <requestFocusEnabled value="false"/>
+                              <verifyInputWhenFocusTarget value="false"/>
+                            </properties>
+                          </component>
+                          <component id="50aca" class="javax.swing.JButton" binding="alignLeftButton">
+                            <constraints/>
+                            <properties>
+                              <borderPainted value="false"/>
+                              <contentAreaFilled value="false"/>
+                              <focusPainted value="false"/>
+                              <focusable value="false"/>
+                              <icon value="components/images/html-editor-align-left.png"/>
+                              <iconTextGap value="0"/>
+                              <opaque value="false"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="a9aba" class="javax.swing.JButton" binding="alignCenter">
+                            <constraints/>
+                            <properties>
+                              <borderPainted value="false"/>
+                              <contentAreaFilled value="false"/>
+                              <focusPainted value="false"/>
+                              <focusable value="false"/>
+                              <icon value="components/images/html-editor-align-center.png"/>
+                              <iconTextGap value="0"/>
+                              <opaque value="false"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="363b1" class="javax.swing.JButton" binding="alignRight">
+                            <constraints/>
+                            <properties>
+                              <borderPainted value="false"/>
+                              <contentAreaFilled value="false"/>
+                              <focusPainted value="false"/>
+                              <focusable value="false"/>
+                              <icon value="components/images/html-editor-align-right.png"/>
+                              <iconTextGap value="0"/>
+                              <opaque value="false"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="fe268" class="javax.swing.JButton" binding="alignJustify">
+                            <constraints/>
+                            <properties>
+                              <borderPainted value="false"/>
+                              <contentAreaFilled value="false"/>
+                              <focusPainted value="false"/>
+                              <focusable value="false"/>
+                              <icon value="components/images/html-editor-align-justify.png"/>
+                              <iconTextGap value="0"/>
+                              <opaque value="false"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="960d" class="javax.swing.JSeparator">
+                            <constraints/>
+                            <properties>
+                              <alignmentX value="1.0"/>
+                              <background color="-16777216"/>
+                              <enabled value="false"/>
+                              <minimumSize width="5" height="5"/>
+                              <opaque value="true"/>
+                              <orientation value="1"/>
+                              <preferredSize width="5" height="5"/>
+                              <requestFocusEnabled value="false"/>
+                              <verifyInputWhenFocusTarget value="false"/>
+                            </properties>
+                          </component>
+                          <component id="41e4a" class="javax.swing.JLabel" binding="foregroundLabel">
+                            <constraints/>
+                            <properties>
+                              <foreground color="-16777216"/>
+                              <text value="F"/>
+                            </properties>
+                          </component>
+                          <component id="7f4fc" class="javax.swing.JButton" binding="foregroundColorButton">
+                            <constraints/>
+                            <properties>
+                              <background color="-1312513"/>
+                              <enabled value="true"/>
+                              <foreground color="-1312513"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="bfc01" class="javax.swing.JLabel" binding="backgroundLabel">
+                            <constraints/>
+                            <properties>
+                              <foreground color="-16777216"/>
+                              <text value="B"/>
+                            </properties>
+                          </component>
+                          <component id="9090b" class="javax.swing.JButton" binding="backgroundColorButton">
+                            <constraints/>
+                            <properties>
+                              <background color="-1312513"/>
+                              <enabled value="true"/>
+                              <foreground color="-1312513"/>
+                              <preferredSize width="28" height="27"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
+              </scrollpane>
               <scrollpane id="ab6ff">
                 <constraints>
                   <tabbedpane title="Source"/>
@@ -231,26 +251,6 @@
                     <border type="none"/>
                     <children>
                       <component id="28011" class="javax.swing.JTextPane" binding="sourceTextPane">
-                        <constraints border-constraint="Center"/>
-                        <properties/>
-                      </component>
-                    </children>
-                  </grid>
-                </children>
-              </scrollpane>
-              <scrollpane id="5b002">
-                <constraints>
-                  <tabbedpane title="View"/>
-                </constraints>
-                <properties/>
-                <border type="none"/>
-                <children>
-                  <grid id="5774b" layout-manager="BorderLayout" hgap="0" vgap="0">
-                    <constraints/>
-                    <properties/>
-                    <border type="none"/>
-                    <children>
-                      <component id="e3c44" class="javax.swing.JEditorPane" binding="htmlEditorPane">
                         <constraints border-constraint="Center"/>
                         <properties/>
                       </component>

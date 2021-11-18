@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5455a7cb-eced-4abb-9a32-5981fdea0111" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/hotswap_agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/swing-html-editor.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manifest.mf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HtmlEditor.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HtmlEditor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-align-center.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-align-justify.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-align-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-align-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-bold-selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-bold.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-italic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/html-editor-underline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/images/plan.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HtmlEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HtmlEditor.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HtmlEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HtmlEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +39,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -98,11 +79,55 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637141729612</updated>
-      <workItem from="1637141731324" duration="1236000" />
+      <workItem from="1637141731324" duration="15809000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1637143406625</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1637143406625</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_231/src.zip!/java/lang/NullPointerException.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_231/src.zip!/java/lang/NullPointerException.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_231/src.zip!/javax/swing/text/AbstractDocument.java</url>
+          <line>1337</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="htmlEditorPane.getText()" language="JAVA" />
+        <watch expression="htmlEditorPane.getCaretPosition()" />
+        <watch expression="sourceTextPane.getDocument()" language="JAVA" />
+        <watch expression="listenerList.getListenerCount(DocumentListener.class)" />
+        <watch expression="listenerList" />
+        <watch expression="sourceTextPane.getDocument()" language="JAVA" />
+        <watch expression="isteners[i+1]" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

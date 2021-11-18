@@ -3,10 +3,10 @@ package components;
 import com.sun.istack.internal.Nullable;
 
 import javax.swing.*;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import javax.swing.event.CaretListener;
 import javax.swing.event.ChangeListener;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
 import javax.swing.text.html.CSS;
 import javax.swing.text.html.HTMLDocument;
@@ -14,8 +14,6 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 import java.awt.event.ItemListener;
-import java.io.File;
-import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +27,6 @@ public class HtmlEditor extends JFrame {
     private final HTMLDocument htmlDocument = (HTMLDocument) htmlEditorKit.createDefaultDocument();
     private final ChangeListener fontSizeChangeListener;
     private final ItemListener fontFamilyItemListener;
-    private final DocumentListener htmlDocumentListener;
     private final CaretListener htmlDocumentCaretListener;
     private Consumer<String> saveConsumer;
     private JPanel mainPanel;
@@ -51,10 +48,7 @@ public class HtmlEditor extends JFrame {
     private JButton cancelButton;
     private JLabel foregroundLabel;
     private JLabel backgroundLabel;
-    private int selectionStart;
-    private int selectionEnd;
-    private final DocumentListener sourceDocumentListener;
-
+    private JPanel htmlEditorContainer;
 
     public HtmlEditor() {
         super("Html Editor");
@@ -85,43 +79,10 @@ public class HtmlEditor extends JFrame {
         fontSizeChangeListener = e -> {
             selectParagraphElementIfHasNoSelection();
             setCharacterAttributes(StyleConstants.FontSize, fontSizeSpinner.getValue() + PIXEL);
-
         };
         fontFamilyItemListener = e -> {
             selectParagraphElementIfHasNoSelection();
             setCharacterAttributes(StyleConstants.FontFamily, fontFamilyCombo.getSelectedItem());
-        };
-        sourceDocumentListener = new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                initBySourceDocument();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                initBySourceDocument();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                initBySourceDocument();
-            }
-        };
-        htmlDocumentListener = new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e1) {
-                sourceTextPane.setText(getContentAsHtml());
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e1) {
-                sourceTextPane.setText(getContentAsHtml());
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e1) {
-                sourceTextPane.setText(getContentAsHtml());
-            }
         };
 
         htmlDocumentCaretListener = e -> initByHtmlDocument();
@@ -141,9 +102,44 @@ public class HtmlEditor extends JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(1200, 1000));
-        foregroundLabel.setFont(foregroundLabel.getFont().deriveFont(Font.BOLD, 14));
-        backgroundLabel.setFont(backgroundLabel.getFont().deriveFont(Font.BOLD, 14));
+        foregroundLabel.setFont(foregroundLabel.getFont().deriveFont(Font.BOLD, 16));
+        backgroundLabel.setFont(backgroundLabel.getFont().deriveFont(Font.BOLD, 16));
+        boldButton.setBorder(null);
+        italicButton.setBorder(null);
+        underlineButton.setBorder(null);
         pack();
+        htmlEditorPane.addAncestorListener(new AncestorListener() {
+            @Override
+            public void ancestorAdded(AncestorEvent event) {
+                htmlEditorPane.requestFocusInWindow();
+                htmlEditorPane.setCaretPosition(1);
+            }
+
+            @Override
+            public void ancestorRemoved(AncestorEvent event) {
+
+            }
+
+            @Override
+            public void ancestorMoved(AncestorEvent event) {
+
+            }
+        });
+        tabs.addChangeListener(e -> {
+            if (tabs.getSelectedIndex() == 1) {
+                refreshSourceText();
+            } else {
+                if (!sourceTextPane.getText().equals(getContentAsHtml())) {
+                    htmlEditorPane.setText(sourceTextPane.getText());
+                    htmlEditorPane.revalidate();
+                    htmlEditorPane.repaint();
+                }
+            }
+        });
+    }
+
+    private void refreshSourceText() {
+        sourceTextPane.setText(getContentAsHtml());
     }
 
     private void addHtmlDocumentCaretListener() {
@@ -175,42 +171,13 @@ public class HtmlEditor extends JFrame {
 
     public void setSourceHtml(String html) {
         removeHtmlDocumentCaretListener();
-        removeHtmlDocumentListener();
-        removeSourceDocumentListener();
         htmlEditorPane.setText(html);
         sourceTextPane.setText(html);
-        addHtmlDocumentListener();
-        addSourceDocumentListener();
         addHtmlDocumentCaretListener();
     }
 
     private void removeHtmlDocumentCaretListener() {
         htmlEditorPane.removeCaretListener(htmlDocumentCaretListener);
-    }
-
-    private void addSourceDocumentListener() {
-        sourceTextPane.getDocument().addDocumentListener(sourceDocumentListener);
-    }
-
-    private void addHtmlDocumentListener() {
-        htmlEditorPane.getDocument().addDocumentListener(htmlDocumentListener);
-    }
-
-    private void removeSourceDocumentListener() {
-        sourceTextPane.getDocument().removeDocumentListener(sourceDocumentListener);
-    }
-
-    private void removeHtmlDocumentListener() {
-        htmlEditorPane.getDocument().removeDocumentListener(htmlDocumentListener);
-    }
-
-    private void initBySourceDocument() {
-        removeHtmlDocumentCaretListener();
-        removeHtmlDocumentListener();
-        htmlEditorPane.setText(sourceTextPane.getText());
-        htmlEditorPane.revalidate();
-        addHtmlDocumentListener();
-        addHtmlDocumentCaretListener();
     }
 
     private void initByHtmlDocument() {
@@ -219,9 +186,9 @@ public class HtmlEditor extends JFrame {
         Object fontSizeText = getParagraphElementStyle(CSS.Attribute.FONT_SIZE);
         Color foreground = (Color) getParagraphElementStyle(StyleConstants.Foreground);
         Color background = (Color) getParagraphElementStyle(StyleConstants.Background);
-        boolean bold = (Boolean) getParagraphElementStyle(StyleConstants.FontConstants.Bold) == Boolean.TRUE;
-        boolean italic = (Boolean) getParagraphElementStyle(StyleConstants.Italic) == Boolean.TRUE;
-        boolean underline = (Boolean) getParagraphElementStyle(StyleConstants.Underline) == Boolean.TRUE;
+        boolean bold = getParagraphElementStyle(StyleConstants.FontConstants.Bold) == Boolean.TRUE;
+        boolean italic = getParagraphElementStyle(StyleConstants.Italic) == Boolean.TRUE;
+        boolean underline = getParagraphElementStyle(StyleConstants.Underline) == Boolean.TRUE;
 
         if (fontSizeText != null && fontSizeText.toString().contains(PIXEL)) {
             fontSize = Integer.parseInt(fontSizeText.toString().replaceAll(PIXEL, ""));
@@ -247,7 +214,9 @@ public class HtmlEditor extends JFrame {
         backgroundColorButton.setForeground(background);
         backgroundColorButton.setBackground(background);
 
-        boldButton.setIcon(new ImageIcon(new File(bold ? "src/components/images/html-editor-bold-selected.png": "src/components/images/html-editor-bold.png").getAbsolutePath()));
+        boldButton.setBorder(bold ? BorderFactory.createLineBorder(Color.BLACK, 2): null);
+        italicButton.setBorder(italic ? BorderFactory.createLineBorder(Color.BLACK, 2): null);
+        underlineButton.setBorder(underline ? BorderFactory.createLineBorder(Color.BLACK, 2): null);
     }
 
     private String getFontFamilyItem(String fontFamily) {
@@ -316,9 +285,10 @@ public class HtmlEditor extends JFrame {
         initByHtmlDocument();
     }
 
-    private void setSelectedTextCharacterAttributes(AttributeSet attribute) {
-        selectParagraphElementIfHasNoSelection();
-        setCharacterAttributes(attribute);
+    private void setCharacterAttributes(AttributeSet attribute) {
+        int selectionStart = htmlEditorPane.getSelectionStart();
+        int selectionEnd = htmlEditorPane.getSelectionEnd();
+        htmlDocument.setCharacterAttributes(selectionStart, selectionEnd - selectionStart, attribute, false);
     }
 
     private void selectParagraphElementIfHasNoSelection() {
@@ -333,34 +303,11 @@ public class HtmlEditor extends JFrame {
         return htmlEditorPane.getSelectionStart() == htmlEditorPane.getSelectionEnd();
     }
 
-    private void writeHtmlOut() {
-        System.out.println(getContentAsHtml());
-    }
-
-    private void restoreSelection() {
-        htmlEditorPane.setSelectionStart(selectionStart);
-        htmlEditorPane.setSelectionEnd(selectionEnd);
-        htmlEditorPane.requestFocusInWindow();
-    }
-
-    private void saveSelection() {
-        selectionStart = htmlEditorPane.getSelectionStart();
-        selectionEnd = htmlEditorPane.getSelectionEnd();
-    }
-
     private void setCharacterAttributes(Object styleName, Object value) {
-        removeSourceDocumentListener();
         AttributeSet attribute = StyleContext.getDefaultStyleContext().addAttribute(SimpleAttributeSet.EMPTY, styleName, value);
         int selectionStart = htmlEditorPane.getSelectionStart();
         int selectionEnd = htmlEditorPane.getSelectionEnd();
         htmlDocument.setCharacterAttributes(selectionStart, selectionEnd - selectionStart, attribute, false);
-        addSourceDocumentListener();
-    }
-
-    private void setCharacterAttributes(AttributeSet attribute) {
-        removeSourceDocumentListener();
-        htmlDocument.setCharacterAttributes(selectionStart, selectionEnd - selectionStart, attribute, false);
-        addSourceDocumentListener();
     }
 
     private void setParagraphAttributes(Object styleName, Object value) {
@@ -370,13 +317,11 @@ public class HtmlEditor extends JFrame {
     }
 
     private void setParagraphAttributes(AttributeSet attribute) {
-        removeSourceDocumentListener();
         Element paragraphElement = htmlDocument.getParagraphElement(htmlEditorPane.getCaretPosition());
         htmlEditorPane.setSelectionStart(paragraphElement.getStartOffset());
         htmlEditorPane.setSelectionEnd(paragraphElement.getEndOffset() - 1);
         htmlDocument.setParagraphAttributes(htmlEditorPane.getSelectionStart(), htmlEditorPane.getSelectionEnd() - htmlEditorPane.getSelectionStart(), attribute, false);
         htmlDocument.setCharacterAttributes(htmlEditorPane.getSelectionStart(), htmlEditorPane.getSelectionEnd() - htmlEditorPane.getSelectionStart(), attribute, false);
-        addSourceDocumentListener();
     }
 
     private IntStream getSelectionRange() {
@@ -396,13 +341,7 @@ public class HtmlEditor extends JFrame {
     }
 
     private String getContentAsHtml() {
-        try {
-            StringWriter writer = new StringWriter();
-            htmlEditorKit.write(writer, htmlDocument, 0, htmlDocument.getLength());
-            return writer.toString();
-        } catch (Exception e) {
-            throw createRuntimeException(e);
-        }
+        return htmlEditorPane.getText();
     }
 
     private DefaultComboBoxModel<String> createFontComboBoxModel() {
